@@ -5,7 +5,12 @@
 <script src="a.js"></script>
 <script>
 window.addEventListener("load", function() {
-document.getElementById('content').textContent = toString(navigator);
+var area = document.getElementById('content');
+var s = "以下为navigator对象：\n";
+s += toString(navigator);
+s += "\n以下为screen对象：\n";
+s += toString(screen);
+area.textContent = s;
 });
 </script>
 </head>

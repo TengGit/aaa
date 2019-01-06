@@ -1,4 +1,4 @@
-function toString(obj, space = 4, level = 0, maxlevel = 5, metObjects = []) {
+function toString(obj, space = 4, level = 0, maxlevel = 10, metObjects = []) {
 	function mul(str, n) {
 		if (n <= 0) return "";
 		if (n == 1) return str;
@@ -39,5 +39,5 @@ function toString(obj, space = 4, level = 0, maxlevel = 5, metObjects = []) {
 			return obj instanceof Array ? "[...]" : "{...}";
 		}
 	}
-	return obj.toString();
+	return "(" + typeof obj + ") " + obj.toString();
 }

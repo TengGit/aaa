@@ -1,6 +1,7 @@
 .desc {
 	color: black;
 	white-space: pre-wrap;
+	font-family: consolas, monospace;
 }
 
 .desc-null, .desc-undefined {

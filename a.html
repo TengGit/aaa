@@ -7,14 +7,17 @@
 <script>
 window.addEventListener("load", function() {
 var area = document.getElementById('content');
-area.appendChild(document.createTextNode("以下为navigator对象：\n"));
+area.appendChild(document.createTextNode("以下为navigator对象："));
+area.appendChild(document.createElement("br"));
 area.appendChild(toHTMLDescription(navigator));
-area.appendChild(document.createTextNode("\n以下为screen对象：\n"));
+area.appendChild(document.createElement("br"));
+area.appendChild(document.createTextNode("以下为screen对象："));
+area.appendChild(document.createElement("br"));
 area.appendChild(toHTMLDescription(screen));
 });
 </script>
 </head>
 <body>
-<div id='content' style='white-space:pre-wrap;font-family:consolas,monospace'></div>
+<div id='content'></div>
 </body>
 </html>

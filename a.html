@@ -3,14 +3,14 @@
 <head>
 <meta name="viewport" content="width=device-width,user-scalable=no" />
 <script src="a.js"></script>
+<link href="a.css" rel="stylesheet" type="text/css" />
 <script>
 window.addEventListener("load", function() {
 var area = document.getElementById('content');
-var s = "以下为navigator对象：\n";
-s += toString(navigator);
-s += "\n以下为screen对象：\n";
-s += toString(screen);
-area.textContent = s;
+area.appendChild(document.createTextNode("以下为navigator对象：\n"));
+area.appendChild(toHTMLDescription(navigator));
+area.appendChild(document.createTextNode("\n以下为screen对象：\n"));
+area.appendChild(toHTMLDescription(screen));
 });
 </script>
 </head>

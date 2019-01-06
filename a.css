@@ -1,0 +1,53 @@
+.desc {
+	color: black;
+	white-space: pre-wrap;
+}
+
+.desc-null, .desc-undefined {
+	color: gray;
+}
+
+.desc-number {
+	color: #00c;
+}
+
+.desc-string {
+	color: #090;
+}
+
+.desc-boolean {
+	color: #cc0;
+}
+
+.desc-key {
+	color: #99f;
+}
+
+.desc-container {
+	color: black;
+}
+
+.desc-function {
+	color: #099;
+}
+
+.desc-typename {
+	color: gray;
+}
+
+.desc-typename-undefined, .desc-typename-string,
+.desc-typename-number, .desc-typename-container {
+	color: gray;
+}
+
+.desc-typename-null {
+	color: orange;
+}
+
+.desc-typename-number, .desc-typename-boolean {
+	display: none;
+}
+
+.desc-typename-function {
+	color: #c06;
+}

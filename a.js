@@ -95,7 +95,7 @@
 				return result;
 			} else {
 				var s = obj instanceof Array ? "[...]" : "{...}";
-				var result = document.createDescElement("container");
+				var result = createDescElement("container");
 				return appendText(result, s);
 			}
 		}

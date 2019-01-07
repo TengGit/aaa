@@ -5,16 +5,16 @@
 <script src="a.js"></script>
 <link href="a.css" rel="stylesheet" type="text/css" />
 <script>
-window.addEventListener("load", function() {
+window.onload = function() {
 var area = document.getElementById('content');
 area.appendChild(document.createTextNode("以下为navigator对象："));
 area.appendChild(document.createElement("br"));
-area.appendChild(toHTMLDescription(navigator));
+area.appendChild(window.toHTMLDescription(navigator, spaces = 2));
 area.appendChild(document.createElement("br"));
 area.appendChild(document.createTextNode("以下为screen对象："));
 area.appendChild(document.createElement("br"));
-area.appendChild(toHTMLDescription(screen));
-});
+area.appendChild(window.toHTMLDescription(screen, spaces = 2));
+};
 </script>
 </head>
 <body>

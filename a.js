@@ -7,7 +7,22 @@
 		return temp + temp;
 	}
 	
-	globe.toString = function (obj, space = 4, level = 0, maxlevel = 10, metObjects = []) {
+	if (!Array.prototype.indexOf) {
+		Array.prototype.indexOf = function (obj) {
+			for (var i = 0; i < this.length; i++) {
+				if (this[i] === obj) {
+					return i;
+				}
+			}
+			return -1;
+		}
+	}
+	
+	globe.toString = function (obj, space, level, maxlevel, metObjects) {
+		space = space || 4;
+		level = level || 0;
+		maxlevel = maxlevel || 5;
+		metObjects = metObjects || [];
 		switch (typeof(obj)) {
 		case "undefined": return "(undefined)";
 		case "function": return "(function)";
@@ -55,13 +70,17 @@
 		return result;
 	}
 	
-	function createDescTypenameElement(type, extraSpace = false) {
+	function createDescTypenameElement(type, extraSpace) {
 		var result = createDescElement("typename desc-typename-" + type);
 		appendText(result, "(" + type + ")" + (extraSpace ? " " : ""));
 		return result;
 	}
 
-	globe.toHTMLDescription = function (obj, space = 4, level = 0, maxlevel = 10, metObjects = []) {
+	globe.toHTMLDescription = function (obj, space, level, maxlevel, metObjects) {
+		space = space || 4;
+		level = level || 0;
+		maxlevel = maxlevel || 10;
+		metObjects = metObjects || [];
 		switch (typeof obj) {
 		case "undefined": case "function":
 			return createDescTypenameElement(typeof obj);

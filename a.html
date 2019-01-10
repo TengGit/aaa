@@ -4,17 +4,22 @@
 <meta charset="utf8" />
 <meta name="viewport" content="width=device-width,user-scalable=no" />
 <script src="a.js"></script>
-<link href="a.css" rel="stylesheet" type="text/css" />
+<link href="b.css" rel="stylesheet" type="text/css" />
 <script>
 window.onload = function() {
 var area = document.getElementById('content');
 area.appendChild(document.createTextNode("以下为navigator对象："));
 area.appendChild(document.createElement("br"));
-area.appendChild(window.toHTMLDescription(navigator, spaces = 2));
+area.appendChild(window.toHTMLDescription(navigator, 2));
 area.appendChild(document.createElement("br"));
 area.appendChild(document.createTextNode("以下为screen对象："));
 area.appendChild(document.createElement("br"));
-area.appendChild(window.toHTMLDescription(screen, spaces = 2));
+area.appendChild(window.toHTMLDescription(screen, 2));
+area.appendChild(document.createElement("br"));
+area.appendChild(document.createTextNode("以下为window对象："));
+area.appendChild(document.createElement("br"));
+area.appendChild(window.toHTMLDescription(window, 2, 1));
+area.appendChild(document.createElement("br"));
 };
 </script>
 </head>

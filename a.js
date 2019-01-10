@@ -7,6 +7,7 @@
 		return temp + temp;
 	}
 	
+	// IE support
 	if (!Array.prototype.indexOf) {
 		Array.prototype.indexOf = function (obj) {
 			for (var i = 0; i < this.length; i++) {
@@ -18,7 +19,7 @@
 		}
 	}
 	
-	globe.toString = function (obj, space, level, maxlevel, metObjects) {
+	function toStr(obj, space, maxlevel, level, metObjects) {
 		space = space || 4;
 		level = level || 0;
 		maxlevel = maxlevel || 5;
@@ -35,7 +36,7 @@
 					var result = "[", i;
 					for (i = 0; i < obj.length; i++) {
 						if (i !== 0) result += ", ";
-						result += toString(obj[i], space, level + 1, maxlevel, metObjects);
+						result += toStr(obj[i], space, maxlevel, level + 1, metObjects);
 					}
 					result += "]";
 					return result;
@@ -46,7 +47,7 @@
 						if (needSeperator) result += ",";
 						else needSeperator = true;
 						result += "\n" + mul(" ", (level + 1) * space) + i + ": "
-								  + toString(obj[i], space, level + 1, maxlevel, metObjects);
+								  + toStr(obj[i], space, maxlevel, level + 1, metObjects);
 					}
 					result += "\n" + mul(" ", level * space) + "}";
 					return result;
@@ -58,6 +59,8 @@
 		}
 		return "(" + typeof obj + ") " + obj.toString();
 	}
+	
+	globe.toStringDescription = toStr;
 	
 	function appendText(element, text) {
 		element.appendChild(document.createTextNode(text));
@@ -76,7 +79,7 @@
 		return result;
 	}
 
-	globe.toHTMLDescription = function (obj, space, level, maxlevel, metObjects) {
+	function toDesc(obj, space, maxlevel, level, metObjects) {
 		space = space || 4;
 		level = level || 0;
 		maxlevel = maxlevel || 10;
@@ -94,7 +97,7 @@
 					appendText(result, "[");
 					for (var i = 0; i < obj.length; i++) {
 						if (i !== 0) appendText(result, ", ");
-						result.appendChild(toHTMLDescription(obj[i], space, level + 1, maxlevel, metObjects));
+						result.appendChild(toDesc(obj[i], space, maxlevel, level + 1, metObjects));
 					}
 					appendText(result, "]");
 				} else {
@@ -106,7 +109,7 @@
 						appendText(result, "\n" + mul(" ", (level + 1) * space));
 						result.appendChild(appendText(createDescElement("key"), i));
 						appendText(result, ": ");
-						result.appendChild(toHTMLDescription(obj[i], space, level + 1, maxlevel, metObjects));
+						result.appendChild(toHTMLDescription(obj[i], space, maxlevel, level + 1, metObjects));
 					}
 					appendText(result, "\n" + mul(" ", level * space) + "}");
 				}
@@ -122,4 +125,6 @@
 		result.appendChild(createDescTypenameElement(typeof obj, true));
 		return appendText(result, obj.toString());
 	}
+	
+	globe.toHTMLDescription = toDesc;
 })(window);

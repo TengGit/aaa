@@ -1,0 +1,65 @@
+html {
+    background: black;
+}
+
+#content {
+    background: #333;
+    color: white;
+    margin: 3%;
+    padding: 10px;
+}
+
+.desc {
+	white-space: pre-wrap;
+	font-family: consolas, monospace;
+}
+
+.desc-null, .desc-undefined {
+	color: gray;
+}
+
+.desc-number {
+	color: cyan;
+}
+
+.desc-string {
+	color: #0f0;
+}
+
+.desc-boolean {
+	color: yellow;
+}
+
+.desc-key {
+	color: #99f;
+}
+
+.desc-container {
+	color: inherit;
+}
+
+.desc-function {
+	color: #099;
+}
+
+.desc-typename {
+	color: #aaa;
+    font-style: italic;
+}
+
+.desc-typename-undefined, .desc-typename-string,
+.desc-typename-number, .desc-typename-container {
+	color: auto;
+}
+
+.desc-typename-null {
+	color: orange;
+}
+
+.desc-typename-number, .desc-typename-boolean {
+	display: inline;
+}
+
+.desc-typename-function {
+	color: #f09;
+}

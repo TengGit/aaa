@@ -121,7 +121,7 @@
 				return appendText(result, s);
 			}
 		}
-		var result = createDescElement(typeof obj)
+		var result = createDescElement(typeof obj);
 		result.appendChild(createDescTypenameElement(typeof obj, true));
 		return appendText(result, obj.toString());
 	}

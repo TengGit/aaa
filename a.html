@@ -4,7 +4,7 @@
 <meta charset="utf8" />
 <meta name="viewport" content="width=device-width,user-scalable=no" />
 <script src="a.js"></script>
-<link href="b.css" rel="stylesheet" type="text/css" />
+<link href="b.css" rel="stylesheet" type="text/css" id="styler"/>
 <script>
 window.onload = function() {
 var area = document.getElementById('content');
@@ -20,10 +20,23 @@ area.appendChild(document.createTextNode("以下为window对象："));
 area.appendChild(document.createElement("br"));
 area.appendChild(window.toHTMLDescription(window, 2, 1));
 area.appendChild(document.createElement("br"));
+
+var isNight = true;
+document.getElementById('style-switcher').addEventListener('click', function() {
+	var styler = document.getElementById('styler');
+	if (isNight) {
+		styler.href = "a.css";
+		isNight = false;
+	} else {
+		styler.href = "b.css"
+		isNight = true;
+	}
+});
 };
 </script>
 </head>
 <body>
-<div id='content'></div>
+<div><input type="button" id="style-switcher" value="Switch style"></input></div>
+<div id="content"></div>
 </body>
 </html>

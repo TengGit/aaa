@@ -6,8 +6,11 @@
 <script src="a.js"></script>
 <link href="b.css" rel="stylesheet" type="text/css" id="styler"/>
 <script>
-window.onload = function() {
+var refresh = function() {
 var area = document.getElementById('content');
+while (area.firstChild !== null) {
+    area.removeChild(area.firstChild);
+}
 area.appendChild(document.createTextNode("以下为navigator对象："));
 area.appendChild(document.createElement("br"));
 area.appendChild(window.toHTMLDescription(navigator, 2));
@@ -32,11 +35,18 @@ document.getElementById('style-switcher').addEventListener('click', function() {
 		isNight = true;
 	}
 });
+document.getElementById('refresh').addEventListener('click', refresh);
 };
+
+window.onload = refresh;
+
 </script>
 </head>
 <body>
-<div><input type="button" id="style-switcher" value="Switch style"></input></div>
+<div>
+<input type="button" id="style-switcher" value="Switch style"></input>
+<input type="button" id="refresh" value="Refresh"></input>
+</div>
 <div id="content"></div>
 </body>
 </html>
